@@ -27,6 +27,13 @@ import IntroScreen from '@/components/IntroScreen'
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false)
   const [hasEntered, setHasEntered] = useState(false)
+  
+  React.useEffect(() => {
+    if (hasEntered) {
+      window.scrollTo(0, 0)
+      document.body.style.overflow = 'auto'
+    }
+  }, [hasEntered])
 
   return (
     <main className="min-h-screen relative overflow-x-hidden">
