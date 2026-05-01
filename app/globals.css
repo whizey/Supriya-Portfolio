@@ -54,11 +54,23 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/[0.03] dark:bg-white/[0.03] backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all;
+    @apply bg-white/[0.05] dark:bg-white/[0.05] border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all;
+  }
+
+  @media (min-width: 1024px) {
+    .glass {
+      @apply backdrop-blur-xl;
+    }
   }
 
   .glass-strong {
-    @apply bg-black/[0.01] dark:bg-white/[0.08] backdrop-blur-2xl border border-black/5 dark:border-white/20 shadow-[0_32px_64px_rgba(0,0,0,0.04)] dark:shadow-2xl transition-all;
+    @apply bg-black/[0.1] dark:bg-white/[0.1] border border-black/5 dark:border-white/20 shadow-[0_32px_64px_rgba(0,0,0,0.04)] dark:shadow-2xl transition-all;
+  }
+
+  @media (min-width: 1024px) {
+    .glass-strong {
+      @apply backdrop-blur-2xl;
+    }
   }
 
   .neon-glow {
@@ -133,9 +145,14 @@
   width: 200%;
   height: 200%;
   background: radial-gradient(circle at center, rgba(220, 38, 38, 0.12) 0%, transparent 50%);
-  animation: liquid-move 15s infinite alternate ease-in-out;
   pointer-events: none;
   filter: blur(40px);
+}
+
+@media (min-width: 1024px) {
+  .liquid-bg::after {
+    animation: liquid-move 15s infinite alternate ease-in-out;
+  }
 }
 
 @keyframes liquid-move {

@@ -102,9 +102,9 @@ export default function Navbar({ onContactClick }: { onContactClick: () => void 
       layout
       className={`fixed top-8 left-1/2 transform -translate-x-1/2 z-[110]
                        flex flex-col items-center
-                       py-2 backdrop-blur-md
+                       py-2 lg:backdrop-blur-md
                        ${headerShapeClass}
-                       border border-white/10 bg-[#02020557]
+                       border border-white/10 bg-[#020205] lg:bg-[#02020557]
                        transition-[border-radius] duration-300 ease-in-out px-2 shadow-2xl overflow-hidden`}
       animate={{ 
         width: isExpanded ? 'auto' : '64px',
