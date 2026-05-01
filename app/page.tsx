@@ -29,7 +29,7 @@ export default function Home() {
   const [hasEntered, setHasEntered] = useState(false)
 
   return (
-    <main className="min-h-screen bg-[#020205] grid-background relative">
+    <main className="min-h-screen relative overflow-x-hidden">
       <AnimatePresence>
         {!hasEntered && (
           <IntroScreen key="intro-screen" onEnter={() => setHasEntered(true)} />
@@ -47,8 +47,8 @@ export default function Home() {
           }}
         >
           <ContactCard isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-          <div className="fixed inset-0 z-0 h-screen w-full pointer-events-none">
-            <div className="liquid-bg" />
+          <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
+            <div className="liquid-bg grid-background" />
           </div>
           <ScrollProgress />
 
