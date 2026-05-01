@@ -144,16 +144,16 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at center, rgba(220, 38, 38, 0.15) 0%, transparent 50%);
-  animation: liquid-move 20s infinite alternate linear;
+  background: radial-gradient(circle at center, rgba(220, 38, 38, 0.2) 0%, transparent 50%);
+  animation: liquid-move 12s infinite alternate linear;
   pointer-events: none;
-  filter: blur(60px);
+  filter: blur(80px);
   will-change: transform;
 }
 
 @keyframes liquid-move {
-  from { transform: translate(-5%, -5%) rotate(0deg); }
-  to { transform: translate(5%, 5%) rotate(10deg); }
+  from { transform: translate(-8%, -8%) rotate(0deg) scale(1); }
+  to { transform: translate(8%, 8%) rotate(15deg) scale(1.1); }
 }
 
 .glow-red {

@@ -37,62 +37,49 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-x-hidden">
-      <AnimatePresence>
-        {!hasEntered && (
-          <IntroScreen key="intro-screen" onEnter={() => setHasEntered(true)} />
-        )}
-      </AnimatePresence>
-
-      {hasEntered && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 1.0, 
-            ease: [0.22, 1, 0.36, 1],
-            delay: 0.1 
-          }}
-        >
-          <ContactCard isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-          <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
-            <div className="liquid-bg grid-background" />
-          </div>
-          <ScrollProgress />
-
-          <CommandPalette />
-          <EasterEgg />
-          <Navbar onContactClick={() => setIsContactOpen(true)} />
-
-          <SmoothScroll>
-            <Hero onContactClick={() => setIsContactOpen(true)} />
-            
-            <ScrollSection id="about">
-              <About />
-            </ScrollSection>
-            
-            <Approach />
-            
-            <ScrollSection id="experience">
-              <Experience />
-            </ScrollSection>
-            
-            <ScrollSection id="projects">
-              <Projects />
-            </ScrollSection>
-            
-
-
-
-            <ScrollSection id="contact">
-              <Contact />
-            </ScrollSection>
-            
-            <ScrollSection id="footer">
-              <Footer />
-            </ScrollSection>
-          </SmoothScroll>
-        </motion.div>
+      {!hasEntered && (
+        <IntroScreen key="intro-screen" onEnter={() => setHasEntered(true)} />
       )}
+
+      <div 
+        className={`transition-opacity duration-1000 ${hasEntered ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      >
+        <div className="fixed inset-0 -z-10 h-full w-full pointer-events-none">
+          <div className="liquid-bg grid-background" />
+        </div>
+        <ScrollProgress />
+
+        <CommandPalette />
+        <EasterEgg />
+        <Navbar onContactClick={() => setIsContactOpen(true)} />
+
+        <SmoothScroll>
+          <Hero onContactClick={() => setIsContactOpen(true)} />
+          
+          <ScrollSection id="about">
+            <About />
+          </ScrollSection>
+          
+          <Approach />
+          
+          <ScrollSection id="experience">
+            <Experience />
+          </ScrollSection>
+          
+          <ScrollSection id="projects">
+            <Projects />
+          </ScrollSection>
+          
+          <ScrollSection id="contact">
+            <Contact />
+          </ScrollSection>
+          
+          <ScrollSection id="footer">
+            <Footer />
+          </ScrollSection>
+        </SmoothScroll>
+        <ContactCard isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      </div>
     </main>
   )
 }
